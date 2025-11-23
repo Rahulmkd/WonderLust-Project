@@ -1,5 +1,9 @@
 <% layout("/layouts/boilerplate")%>
 
+  <script>
+    const place = "<%= listing.location %>";
+  </script>
+
   <div class="row mt-3">
     <div class="col-8 offset-3">
       <h3>
@@ -41,25 +45,18 @@
 
         </div>
     </div>
-    <hr>
 
     <div class="col-8 offset-3 mb-3">
-
+      <hr>
       <% if(currUser) {%>
 
         <h4>Leave a Review</h4>
         <form action="/listings/<%=listing.id %>/reviews" method="post" novalidate class="needs-validation">
 
-          <!-- <div class="mb-3 mt-3">
-            <label for="rating" class="form-label">Rating</label>
-            <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range">
-          </div> -->
-
 
           <div class="mb-3 mt-3">
             <label for="rating" class="form-label">Rating</label>
             <fieldset class="starability-growRotate">
-              <!-- <legend>First rating:</legend> -->
               <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked
                 aria-label="No rating." />
               <input type="radio" id="first-rate1" name="review[rating]" value="1" />
@@ -88,37 +85,43 @@
         <% } %>
 
 
-          <hr>
-          <h4>All reviews</h4>
+          <% if(listing.reviews.length>0){%>
 
-          <div class="row">
-            <% for(review of listing.reviews){%>
-              <div class="card col-5 ms-3 mb-3">
-                <div class="card-body">
+            <div class="row">
+              <h4>All reviews</h4>
+              <% for(review of listing.reviews){%>
+                <div class="card col-5 ms-3 mb-3">
+                  <div class="card-body">
 
-                  <h5 class="card-title">@<%=review.author.username%>
-                  </h5>
-                  <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
+                    <h5 class="card-title">@<%=review.author.username%>
+                    </h5>
+                    <p class="starability-result card-text" data-rating="<%= review.rating %>"></p>
 
-                  <p class="card-text">
-                    <%= review.comment %>
-                  </p>
+                    <p class="card-text">
+                      <%= review.comment %>
+                    </p>
 
-                  <% if(currUser && currUser._id.equals(review.author._id)){%>
+                    <% if(currUser && currUser._id.equals(review.author._id)){%>
 
-                    <form class="mb-3" action="/listings/<%= listing._id%>/reviews/<%=review._id%>?_method=delete"
-                      method="post">
-                      <button class="btn btn-sm btn-dark">Delete</button>
-                    </form>
+                      <form class="mb-3" action="/listings/<%= listing._id%>/reviews/<%=review._id%>?_method=delete"
+                        method="post">
+                        <button class="btn btn-sm btn-dark">Delete</button>
+                      </form>
 
-                    <% } %>
+                      <% } %>
+                  </div>
 
                 </div>
-              </div>
-              <%}%>
-          </div>
+                <%}%>
+            </div>
+            <% } %>
+    </div>
 
-
+    <div class="col-8 offset-3 mb-3">
+      <h3>Where you'll be</h3>
+      <div id="map"></div>
     </div>
 
   </div>
+
+  <script src="/js/map.js"></script>
