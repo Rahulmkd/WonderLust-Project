@@ -47,7 +47,25 @@
           <a class="nav-link" href="/login"><b>Log in</b></a>
           <% } %>
             <% if(currUser){ %>
-              <a class="nav-link" href="/logout"><b>Log out</b></a>
+
+              <!-- <a class="nav-link" href="/logout"><b>Log out</b></a> -->
+              <!-- Example single danger button -->
+              <div class="btn-group dropstart">
+                <button type="button" class="btn btn-secondary dropdown-toggle profile-btn" data-bs-toggle="dropdown"
+                  aria-expanded="false"></button>
+                <ul class="dropdown-menu">
+
+                  <li><a class="dropdown-item disabled" aria-disabled="true">
+                      <%= currUser.username %>
+                    </a></li>
+                    
+                  <li><a class="dropdown-item" href="/">Manage account</a></li>
+                  <li><a class="dropdown-item" href="/logout"><b>Log out</b></a></li>
+
+                </ul>
+              </div>
+
+
               <% } %>
       </div>
     </div>

@@ -123,6 +123,13 @@ body {
     padding-right: 0;
 }
 
+
+.profile-btn {
+    background-color: #fe424d !important;
+}
+
+
+
 /* map */
 #map {
     height: 400px;
