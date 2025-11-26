@@ -1,0 +1,17 @@
+<% layout("/layouts/boilerplate")%>
+
+    <div class="profile-section">
+        <img src="" alt="Profile Image">
+        <div class="profile-info">
+            <h2>
+                <%= currUser.username.toUpperCase() %>
+            </h2>
+            <p>
+                <%= currUser.username %>
+            </p>
+            <p>
+                <%= currUser.email %>
+            </p>
+            <button>Edit Profile</button>
+        </div>
+    </div>

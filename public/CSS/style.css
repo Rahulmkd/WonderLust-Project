@@ -124,10 +124,40 @@ body {
 }
 
 
-.profile-btn {
+.search-btn {
     background-color: #fe424d !important;
+    color: #fff !important;
+    border-radius: 25px !important;
+    padding: 0 1rem 0 1rem !important;
 }
 
+.search-btn i {
+    display: inline !important;
+    margin-right: 0.5rem !important;
+}
+
+.search-input {
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
+
+}
+
+.profile-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    background-color: #fe424d !important;
+    background-image: url("https://api.unsplash.com/random");
+    background-size: cover;
+    background-position: center;
+    color: white !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    border: none !important;
+}
 
 
 /* map */
@@ -135,4 +165,46 @@ body {
     height: 400px;
     width: 100vh;
 
+}
+
+
+/* Main Profile Section */
+.profile-section {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile-section img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 28px;
+    color: #333;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.profile-info button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #fe424d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }

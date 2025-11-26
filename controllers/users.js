@@ -41,3 +41,7 @@ module.exports.logout = (req, res, next) => {
     res.redirect("/listings");
   });
 };
+
+module.exports.userInfo = (req, res) => {
+  res.render("users/info.ejs");
+};
